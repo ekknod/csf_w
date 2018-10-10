@@ -34,6 +34,7 @@ struct process_snap {
 
 extern "C"
 {
+typedef int BOOL;
 typedef void *voidptr_t;
 typedef long NTSTATUS;
 #define NTAPI __stdcall
@@ -44,6 +45,7 @@ DECLSPEC_IMPORT NTSTATUS NTAPI  NtClose(HANDLE);
 DECLSPEC_IMPORT NTSTATUS NTAPI  NtReadVirtualMemory(HANDLE, PVOID, PVOID, size_t, size_t*);
 DECLSPEC_IMPORT NTSTATUS NTAPI  NtWriteVirtualMemory(HANDLE, PVOID, PVOID, size_t, size_t*);
 DECLSPEC_IMPORT HANDLE   WINAPI OpenProcess(uint32_t, uint32_t, uint32_t);
+DECLSPEC_IMPORT BOOL     WINAPI GetExitCodeProcess(HANDLE, uint32_t*);
 }
 
 static void *create_snapshot(void);
@@ -80,8 +82,9 @@ void u_process::detach(void)
 
 bool u_process::exists(void)
 {
-    char b;
-    return read(_peb, &b, 1) == 0l;
+    uint32_t e;
+    GetExitCodeProcess(_handle, &e);
+    return e == 0x00000103;
 }
 
 uintptr_t u_process::find_module(const wchar_t *name)
