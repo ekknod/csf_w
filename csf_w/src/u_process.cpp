@@ -213,3 +213,4 @@ static uintptr_t teb_to_peb(HANDLE process, uintptr_t teb, bool wow64)
     NtReadVirtualMemory(process, (PVOID)((char*)teb + offset), &peb, length, 0);
     return peb;
 }
+

@@ -73,6 +73,7 @@ vec3 cs_player::GetVecView(void)
 {
     return cs_p.read<vec3>(self + cs_nv_m_vecViewOffset);
 }
+
 vec3 cs_player::GetEyePos(void)
 {
     vec3 v, o, r;

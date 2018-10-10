@@ -21,3 +21,4 @@ cs_interface_reg find(const wchar_t *module_name);
 }
 
 #endif /* CS_INTERFACES_H */
+

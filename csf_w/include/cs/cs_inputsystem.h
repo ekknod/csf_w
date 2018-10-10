@@ -17,3 +17,4 @@ vec2i GetMouseAnalogDelta(void);
 }
 
 #endif /* CS_INPUTSYSTEM_H */
+
