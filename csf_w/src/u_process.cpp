@@ -78,10 +78,10 @@ void u_process::detach(void)
     }
 }
 
-BOOL u_process::exists(void)
+bool u_process::exists(void)
 {
     char b;
-    return read(_peb, &b, 1) + 1;
+    return read(_peb, &b, 1) == 0l;
 }
 
 uintptr_t u_process::find_module(const wchar_t *name)

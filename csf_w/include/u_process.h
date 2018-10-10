@@ -3,7 +3,6 @@
 
 #include <inttypes.h>
 
-typedef int BOOL;
 typedef void *HANDLE, *PVOID;
 typedef long NTSTATUS;
 
@@ -18,7 +17,7 @@ public:
 
     bool      attach(void);
     void      detach(void);
-    BOOL      exists(void);
+    bool      exists(void);
     uintptr_t find_module(const wchar_t *name);
     uintptr_t find_export(uintptr_t module, const char *name);
     NTSTATUS  read(uintptr_t address, void *buffer, size_t length);
