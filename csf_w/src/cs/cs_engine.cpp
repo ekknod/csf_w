@@ -183,7 +183,7 @@ static void initialize_nv(void)
     cs_nv_dwEntityList        = offset_entitylist();
     cs_nv_dwClientState       = offset_clientstate();
     cs_nv_m_dwGetLocalPlayer  = cs_p.read<uint32_t>(cs_vt_engine.function(12) + 0x16);
-    cs_nv_m_dwViewAngles      = cs_p.read<uint32_t>(cs_vt_engine.function(19) + 0xB2);
+    cs_nv_m_dwViewAngles      = cs_p.read<uint32_t>(cs_vt_engine.function(19) + 0x1D3);
     cs_nv_m_dwMaxClients      = cs_p.read<uint32_t>(cs_vt_engine.function(20) + 0x07);
     cs_nv_m_dwState           = cs_p.read<uint32_t>(cs_vt_engine.function(26) + 0x07);
     cs_nv_m_dwButton          = cs_p.read<uint32_t>(cs_vt_inputsystem.function(15) + 0x21D);
